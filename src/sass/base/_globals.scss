@@ -1,0 +1,70 @@
+// GLOBAL
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline-color: $primary;
+}
+
+body {
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: "DM Sans", sans-serif;
+}
+
+a, a:visited {
+    text-decoration : none;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+p {
+    font-size: 1em;
+    font-family: $font;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+main {
+    position: relative;
+}
+
+em {
+    font-style: normal;
+    color: $primary;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.selected {
+    color: white !important;
+    background-color: $primary !important;
+    fill: $primary;
+}
+
+.reversed {
+    transform: rotate(180deg);
+    transition: 200ms ease-in-out;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
+}

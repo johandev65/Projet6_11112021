@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <!-- encoding -->
+        <meta charset="UTF-8" />
+        <!-- mobile layout -->
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon.png">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- stylesheet -->
+        <link rel="stylesheet" href="src/css/style.css"/>
+        <!-- javascript -->
+        <script src="src/js/scrollToTop.js" defer></script>
+        <script src="src/js/home/PhotographersList.js" defer></script>
+        <script src="src/js/home/FilterTags.js" defer></script>
+        <!-- SEO -->
+        <title>FishEye</title>
+        <meta name="description" content="Les meilleurs photographes freelances exposent leurs travaux sur FishEye !"/>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            
+            <!-- BOUTON REVENIR EN HAUT -->
+            <button class="scrollToTopBtn">Passer au contenu</button>
+
+            <!-- HEADER -->
+            <header class="header">
+                <!-- logo -->
+                <div class="header-logo">
+                    <a class="logo" href="index.html" tabindex=0>
+                        <img src="assets/logo/fisheye-logo.svg" alt="FishEye-logo">
+                    </a>
+                </div>
+                <!-- tags navigation -->
+                <nav class="header-nav" aria-label="photographer tags">
+                    <a class="tag" href="#" tabindex="0" data-filter="portrait">#portrait</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="art">#art</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="fashion">#mode</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="architecture">#architecture</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="travel">#voyage</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="sport">#sport</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="animals">#animaux</a>
+                    <a class="tag" href="#" tabindex="0" data-filter="events">#évènements</a>
+                </nav>
+            </header>
+
+            <!-- MAIN -->
+            <main class="main-photographers">
+                <!-- Title -->
+                <h1 class="main-title" aria-label="Nos Photographes">Nos photographes</h1>
+                <!-- Photographers -->
+                <section id="photographers-list" aria-label="liste des photographes"></section>
+            </main>
+        </div>
+
+    </body>
+</html>

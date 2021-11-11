@@ -1,0 +1,22 @@
+.btn {
+    display: inline-block;
+    font-family: $font;
+    width: 200px;
+    height: 70px;
+    padding: 1.5rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: $primary;
+    transition: background-color 300ms;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    
+    &focus,&:hover {
+        border-color: $secondary;
+        color: black;
+        background: $secondary;
+    }
+}
+

@@ -1,0 +1,18 @@
+.medias-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+  
+    @include laptop {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include tablet {
+        width: 90%;
+        margin: auto;
+    }
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}

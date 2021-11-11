@@ -1,0 +1,137 @@
+.photographer-banner {
+    padding: 2rem 3rem;
+    background: $light-grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    @include laptop {
+        padding: 1.5rem 1.5rem;
+    }
+    @include tablet {
+        padding: 1.5rem 2rem;
+        background: white;
+    }
+    @include mobile {
+        padding: 1.5rem 1rem;
+    }
+}
+
+.photographer-banner__name {
+    color: $secondary;
+    font-size: 4rem;
+    margin: 0 0 1rem 0;
+    font-weight:normal;
+    @include tablet {
+        font-size: 2rem;
+    }
+    @include mobile{
+        font-size: 1.5rem;
+    }
+}
+
+.photographer-banner__location {
+    color: $primary;
+    font-size: 1.5rem;
+    @include tablet {
+        font-size: 1rem;
+        width:80%;
+    }
+    @include small_mobile {
+        font-size: 1rem;
+        width:50%;
+    }
+}
+.photographer-banner-infos {
+    width: 30%;
+    @include tablet {
+        width:50%;
+    }
+}
+
+.photographer-banner__city {
+    color: $primary;
+    font-size: 1.5rem;
+    @include tablet {
+        font-size: 1rem;
+    }
+}
+
+.photographer-banner__tagline {
+    margin: 2rem 0 1.5rem 0;
+    color: $dark-grey;
+    display: block;
+    font-size: 1.15rem;
+    @include tablet {
+        margin: 0.7rem 0 0.5rem 0;
+    }
+    @include small_mobile {
+        width: 170%;
+    }
+}
+
+.photographer-banner__tags {
+    display: flex;
+    margin: 2rem 0 1.5rem 0;
+    color: $dark-grey;
+    font-size: 0.8rem;
+    cursor: pointer;
+    @include tablet {
+        margin: 1rem 0;
+        flex-wrap: wrap;
+    }
+    @include mobile {
+        width: 90vw;
+        justify-content: flex-start;
+    }
+    @include small_mobile {
+        margin: 0;
+        flex-wrap: wrap;
+    }
+}
+
+.photographer-banner-button {
+    margin: 1rem 15% 0 0;
+    @include tablet {
+        position: fixed;
+        bottom: 15px;
+        left: calc(50% - 100px);
+        width: 220px;
+        font-size: 18px;
+        margin: 0;
+        z-index:10;
+    }
+}
+
+.photographer-banner-portrait{
+    margin: 1rem 0;
+    object-fit: cover;
+    cursor: pointer;
+    @include tablet {
+        position: relative;
+        transform: scale(0.8);
+        top: -2rem;
+        margin: 0;
+    }
+    @include mobile {
+        top: -4rem;
+        transform: scale(0.5);
+        width: 50%;
+    }
+    @include small_mobile {
+        top: -3rem;
+        right: 10px;
+        position: absolute;
+    }
+    
+    img {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+}
+
+

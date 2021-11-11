@@ -1,0 +1,172 @@
+@keyframes open-modal {
+    from {
+      top: -20rem;
+  
+      opacity: 0;
+    }
+    to {
+      top: 0;
+  
+      opacity: 1;
+    }
+  }
+
+ .modal-bground {
+    display: none;
+    position: fixed;
+    z-index: 60;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(196, 196, 196, 0.4);
+ } 
+
+.contact-modal {
+    display: none;
+    position: fixed;
+    margin: 5rem auto;
+    width: 550px;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    color: black;
+    background: $salmon;
+    animation: open-modal 800ms forwards;
+    -webkit-animation: open-modal 800ms forwards;
+    z-index: 15;
+    @include laptop {
+        width: 45%;
+    }
+    @include tablet {
+        width: 75%;
+        margin: 1rem auto;
+    }
+    @include mobile {
+        width: 100%;
+        bottom: 0;
+        margin :0;
+    }
+}
+
+.close-icon-form {
+    position: absolute;
+    color: white;
+    top: 2rem;
+    right: 1.5rem;
+    font-size: 3.2rem;
+    cursor: pointer;
+    z-index: 30;
+}       
+
+.contact-modal-title {
+    margin: 0 0 2rem 0;
+    color: black;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.formData {
+    position: relative;
+    margin-bottom:2.5rem;
+}
+.formData label {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.formData label, 
+.formData input {
+    display: block;
+}
+
+.formData input, 
+.formData textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 1.3rem;
+    font-family: $font;
+}
+
+.formData textarea {
+    resize: none;
+    font-family: $font;
+}
+
+.formData input:focus {
+    border: 2px solid #222;
+    outline: 0;
+}
+
+.formData textarea:focus {
+    border: 2px solid #222;
+    outline: 0;
+}
+
+#error1, #error2, #error3, #error4, #error-submit {
+    color:crimson;
+    font-size:0.8rem;
+    font-weight: bold;
+    display: none;
+}
+
+.error {
+    display: none;
+}
+
+
+.form-submit {
+    margin: 0;
+    display: block;
+    @include mobile {
+        display: block;
+        margin: auto;
+    }
+}
+
+.btn-cta:focus {
+    filter: drop-shadow(2px 4px 4px $primary);
+    transform: translateY(-0.125rem);
+}
+
+.contact-success {
+    display: none;
+    position: relative;
+    width: 550px;
+    height: auto;
+    padding: 40px;
+    margin: 5rem auto;
+    line-height: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    color: black;
+    background: $salmon;
+    @include mobile {
+        width:100%;
+    }
+}
+
+.close-icon-success {
+    position: absolute;
+    color: white;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 30;
+}   
+
+.message-success {
+    padding: 0 30px;
+    line-height: 2.2rem;
+}

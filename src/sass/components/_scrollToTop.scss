@@ -1,0 +1,25 @@
+.scrollToTopBtn {
+    position: fixed;
+    display: none;
+    top: 7%;
+    left: calc(50% - 5rem);
+    z-index: 25;
+    font-size: 1.1rem;
+    width: 12rem;
+    padding: 0.8rem;
+    color: black;
+    text-align: center;
+    font-family: $font;
+    transform: translateY(-4rem);
+    transition: color 250ms, transform 300ms;
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    font-weight: 700;
+    background: #db8876;
+    cursor: pointer;
+
+    @include mobile {
+        top: 9%;
+    }
+}

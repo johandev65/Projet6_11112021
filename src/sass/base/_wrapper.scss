@@ -1,0 +1,9 @@
+// DIMENSIONS DU CONTENEUR
+#wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    @include tablet {
+        padding: 0 0 5rem 0rem;
+    }
+}

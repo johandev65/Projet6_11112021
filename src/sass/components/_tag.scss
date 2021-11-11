@@ -1,0 +1,11 @@
+.tag {
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.25rem 0.9rem;
+    border: 1px solid $silver;
+    border-radius: 1rem;
+    color: $primary;
+    background-color: white;
+    transition: border-color 250ms, background-color 250ms;
+    cursor: pointer;
+}

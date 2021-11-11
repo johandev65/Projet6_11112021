@@ -1,0 +1,26 @@
+// IMPORTATION DES VARIABLES ET DES MIXINS
+@import './utils/variables';
+@import './utils/mixins';
+
+// IMPORTATION DES PROPRIÉTÉS GÉNÉRALES DU SITE ET DES POLICES
+@import './base/globals';
+@import './base/wrapper';
+@import './base/fonts';
+
+// IMPORTATION DES LAYOUTS
+@import './layout/header';
+
+// IMPORTATION DES DESIGNS DES COMPOSANTS"
+@import './components/scrollToTop';
+@import './components/photographers-list';
+@import './components/photographer-card';
+@import './components/tag';
+@import './components/buttons';
+@import './components/photographer-banner';
+@import './components/dropdown';
+@import './components/medias-list';
+@import './components/media-card';
+@import './components/likes-price-box';
+@import './components/medias-lightbox';
+@import './components/contact-modal';
+

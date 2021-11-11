@@ -1,0 +1,87 @@
+.sort {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px 0;
+    @include tablet {
+        display: none;
+    }
+
+
+    &-label {
+        font-size: 1.125rem;
+        line-height: 1.43rem;
+        color: black;
+    }
+
+    &-list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        background-color: $primary;
+        border-radius: 5px;
+        width: 180px;
+        height: 50px;
+        overflow: hidden;
+        margin-left: 80px;
+        margin-top: -15px;
+        position: absolute;
+        box-sizing: border-box;
+        padding: 0 10px;
+        z-index: 50;
+
+        &-item {
+            display: flex;
+            width: 100%;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            font-family: $font;
+            font-size: 1.125rem;
+            line-height: 1.43rem;
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    
+        &-item:last-of-type {
+            border-bottom: 0;
+        }
+
+        &-item.first-choice {
+            order: -1;
+            border-bottom: 1px solid white;
+            font-weight: bold;
+        }
+
+        .chevron {
+            border-bottom: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: 200ms ease-in-out;
+            color: white;
+        }
+
+        .chevron.reversed {
+            transform: rotate(180deg);
+            transition: 200ms ease-in-out;
+        }
+    }
+
+    &-list.selected {
+        height: 155px;
+        transition: 200ms ease-in-out;
+    }
+}
+  

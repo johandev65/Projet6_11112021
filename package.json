@@ -1,0 +1,29 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Projet numéro 6 du parcours Développeur Front-End OpenClassrooms",
+  "main": "",
+  "scripts": {
+    "sass": "sass --watch src/sass/main.scss:src/css/style.css",
+    "lint": "eslint ./src/js --fix",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johandev65/johanbonnot_6_11112021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "bugs": {
+    "url": "https://github.com/johandev65/johanbonnot_6_11112021/issues"
+  },
+  "homepage": "https://github.com/johandev65/johanbonnot_6_11112021#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "dependencies": {
+    "sass": "^1.43.2"
+  }
+}

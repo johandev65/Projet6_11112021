@@ -1,0 +1,21 @@
+#photographers-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 27px;
+    row-gap: 60px;
+    // margin: 0 auto 80px auto;
+    position: relative;
+    top: 50px;
+    @include tablet {
+        justify-content: center;
+        top: 120px;
+    }
+    @include mobile {
+        top: 150px;
+    }
+    @include small-mobile {
+        top: 170px;
+    }
+}
