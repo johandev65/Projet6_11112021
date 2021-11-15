@@ -15,7 +15,7 @@ const showPhotographerProfil = () => {
         // On filtre le bon photographe et on affiche la cible
         .then((data) => {
             let filteredPhotographer;
-            // If there is the id parameters in url, then find the first photographer who have the same id in the json file
+            // s'il y a les paramètres ID dans l'URL, trouver ensuite le premier photographe qui aura le même ID dans le data.json
             if (idParam) {
                 filteredPhotographer = data.photographers.find((photographer) => photographer.id == idParam);
             } else {
@@ -58,10 +58,10 @@ const displayGallery = (media, folderName) => {
         `;
 
         // Set HTML of the specific media 
-        let mediaHTML;
+        let specificMediaHTML;
 
         if (elt.image) {
-            mediaHTML = 
+            specificMediaHTML = 
             `
             <a class="media-card__picture" href='#' tabindex='0'>
                 <img src='./assets/portfolios/${folderName}/${elt.image}' alt="${elt.alt}"/>
@@ -69,7 +69,7 @@ const displayGallery = (media, folderName) => {
             `;
 
         } else if (elt.video) {
-            mediaHTML = 
+            specificMediaHTML = 
             `
             <a class="media-card__picture" href='#' title="${elt.title}" tabindex='0'>
                 <video src='./assets/portfolios/${folderName}/${elt.video}' alt="${elt.alt}" id="${elt.id}" label="Français" kind="subtitles" srclang="fr" controls autoplay loop>
@@ -79,7 +79,7 @@ const displayGallery = (media, folderName) => {
 
         // Add it to gallery section
         gallery.insertAdjacentHTML('beforeend', structureMediaHTML);
-        document.getElementsByClassName('media-card')[i].insertAdjacentHTML('afterbegin', mediaHTML)
+        document.getElementsByClassName('media-card')[i].insertAdjacentHTML('afterbegin', specificMediaHTML)
     })
 }
 

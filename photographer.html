@@ -52,9 +52,9 @@
                         <li class="chevron">
                             <i class="fas fa-chevron-down"></i>
                         </li>
-                        <li class="sort-list-item" data-sort="popularité" tabindex="0">Popularité</li>
-                        <li class="sort-list-item" data-sort="date" tabindex="0">Date</li>
-                        <li class="sort-list-item" data-sort="titre" tabindex="0">Titre</li>
+                        <li class="sort-list-item" id="popular" data-sort="popularité" tabindex="0">Popularité</li>
+                        <li class="sort-list-item" id="date" data-sort="date" tabindex="0">Date</li>
+                        <li class="sort-list-item" id="title" data-sort="titre" tabindex="0">Titre</li>
                     </ul>
                 </div>
 
@@ -66,7 +66,22 @@
                 <div class="likes-price-box" tabindex="0"></div>
 
                 <!-- Lightbox / Carousel des medias -->
-                
+                <div class="lightbox-modal">
+                    <div class="lightbox-body" role="dialog">
+                        <button class="close-lightbox" title="close lightbox">
+                            <img class="close-btn" src="assets/icons/close.png" alt="icône pour fermer la lightbox">
+                        </button>
+                        <button class="previous-media" title="previous media">
+                            <img class="previous-btn" src="assets/icons/arrowleft.png" alt="icône pour aller au media précédent">
+                        </button>
+                        <button class="next-media" title="next media">
+                            <img class="next-btn" src="assets/icons/arrowright.png" alt="icône pour aller au media suivant">
+                        </button>
+                        <img class="lightbox__media" src="assets/portfolios/Mimi/Animals_Rainbow.jpg" alt="Rainbow bird" role="button">
+                        <h2 class="lightbox__media__name">Animals Rainbow</h2>          
+                    </div>
+                </div>
+
                 <!-- Fenêtre modale -->
                 <div class="modal-bground">
                     <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="0">

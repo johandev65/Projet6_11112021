@@ -12,11 +12,13 @@ function createContent () {
 
 
 function sortByCategories (data) {
-    let photographers = data.media; // la variable photographers contient les données de tous les photographes
-    let array = [];
+    let photographers = data.photographers; // la variable photographers contient les données de tous les photographes
+    console.log(photographers);
+    let media = data.media; // la variable photographers contient les données de tous les photographes
+    console.log(media);
     const chevron = document.querySelector('.sort .sort-list .chevron');
     const sortList = document.querySelector('.sort .sort-list');
-    const sort = [...document.querySelectorAll('.sort .sort-list .sort-list-item')];
+    const sortItem = document.querySelector('.sort .sort-list .sort-item');
     const mediasList = document.querySelector('.medias-list');
 
     // comportements du dropdown au clic souris et à la touche TAB 
@@ -36,23 +38,41 @@ function sortByCategories (data) {
         }
     })
 
-    // tri des cartes medias en fonction de la catégorie sélectionnée sur le dropdown
-    sortList.addEventListener('change', function (e) {
-      e.target.value;
 
-      if (e.target.value == 'popularite') {
-        array.sort((a, b) => (a.likes < b.likes ? 1 : -1));
-      } else if (e.target.value == 'date') {
-        array.sort((a, b) => (a.date > b.date ? 1 : -1));
-      } else if (e.target.value == 'titre') {
-        array.sort((a, b) => (a.title > b.title ? 1 : -1));
-      }
-      array.forEach((tab) => {
-        displayPhotographersList(tab);
-      });
+
+    // tri des cartes medias en fonction de la catégorie sélectionnée sur le dropdown
+    const popular = document.querySelector("#popular");
+    const date = document.querySelector("#date");
+    const title = document.querySelector("#title");
+    console.log(media[0].date);
+    console.log(media[0].likes);
+    console.log(media[0].title);
+
+    popular.addEventListener("click", () => {
+        let sortingByPopularity = media[0].likes.sort(function (a, b) {
+            return b.likes - a.likes;
+        });
+        sortingByPopularity;
     });
 
-    getTotalLike();
+    date.addEventListener("click", () => {
+        let sortingByDate = media[0].date.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+        sortingByDate;
+    });
 
+    title.addEventListener("click", () => {
+        let sortingByTitle = media[0].title.sort(function (a, b) {
+            if (a.title < b.title) {
+                return -1;
+            }
+            if (a.title > b.title) {
+                return 1;
+            }
+                return 0;
+        });
+        sortingByTitle;
+    });   
 }
 createContent();

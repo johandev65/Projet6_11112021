@@ -547,109 +547,51 @@ em {
   .likes-price-box i {
     margin-right: 3rem; }
 
-.lightbox {
-  display: fixed;
-  align-items: center;
-  justify-content: center;
+.lightbox-modal {
+  background-color: #fff;
+  display: none;
   position: fixed;
-  z-index: 50;
-  background-color: white;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%; }
-  .lightbox__container {
-    width: 90%;
-    height: 90%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50; }
+
+.lightbox-body {
+  background-color: #fff;
+  height: 90%;
+  left: 50%;
+  margin: 0 auto;
+  position: fixed;
+  text-align: center;
+  top: 7%;
+  transform: translate(-50%, 0);
+  width: 60%; }
+  .lightbox-body .close-btn {
+    width: 40px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 20%; }
+  .lightbox-body .previous-btn {
+    width: 40px;
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    left: 20%; }
+  .lightbox-body .next-btn {
+    width: 40px;
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    right: 20%; }
+  .lightbox-body .lightbox__media {
+    border-radius: 5px; }
+  .lightbox-body .lightbox__media__name {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-    .lightbox__container .lightbox__previous {
-      width: 25px;
-      height: 50px;
-      position: relative;
-      background-color: white;
-      cursor: pointer; }
-      .lightbox__container .lightbox__previous:before, .lightbox__container .lightbox__previous:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-top: 25px solid white;
-        border-bottom: 25px solid white;
-        border-right: 25px solid #901C1C;
-        top: 0;
-        left: 0;
-        box-sizing: border-box; }
-      .lightbox__container .lightbox__previous:after {
-        border-top: 25px solid transparent;
-        border-bottom: 25px solid transparent;
-        border-right: 25px solid white;
-        left: 7px;
-        z-index: 1; }
-    .lightbox__container .lightbox__next {
-      width: 25px;
-      height: 50px;
-      position: relative;
-      background-color: white;
-      cursor: pointer; }
-      .lightbox__container .lightbox__next:before, .lightbox__container .lightbox__next:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-top: 25px solid white;
-        border-bottom: 25px solid white;
-        border-left: 25px solid #901C1C;
-        top: 0;
-        left: 0;
-        box-sizing: border-box; }
-      .lightbox__container .lightbox__next:after {
-        border-top: 25px solid transparent;
-        border-bottom: 25px solid transparent;
-        border-left: 25px solid white;
-        left: -7px;
-        z-index: 1; }
-    .lightbox__container .lightbox__close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer; }
-      .lightbox__container .lightbox__close:before, .lightbox__container .lightbox__close:after {
-        content: "";
-        position: absolute;
-        width: 40px;
-        height: 5px;
-        background-color: #901C1C;
-        top: 50%;
-        transform: translateY(-50%) rotate(-45deg); }
-      .lightbox__container .lightbox__close:after {
-        transform: translateY(-50%) rotate(45deg); }
-    .lightbox__container .lightbox__images {
-      width: 80%;
-      height: 90%;
-      justify-content: center;
-      display: flex; }
-      .lightbox__container .lightbox__images li {
-        display: none; }
-      .lightbox__container .lightbox__images li.show {
-        display: flex;
-        flex-direction: column; }
-        .lightbox__container .lightbox__images li.show img, .lightbox__container .lightbox__images li.show video {
-          width: 100%;
-          height: 100%;
-          object-fit: contain; }
-        .lightbox__container .lightbox__images li.show p {
-          color: #901C1C;
-          font-size: 1.5rem;
-          line-height: 2rem;
-          padding-top: 10px; }
+    text-align: center;
+    color: #901C1C;
+    margin-top: 20px; }
 
 @keyframes open-modal {
   from {
