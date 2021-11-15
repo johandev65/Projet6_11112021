@@ -8,7 +8,7 @@ fetch('data/data.json')
             alert("N'a pas pu charger l'API FishEye");
         }
     })
-    .then((data) => createLightboxItems(data));
+
 }
 
 createContent();

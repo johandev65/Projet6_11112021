@@ -46,18 +46,28 @@
                 <div class="photographer-banner"></div>
 
                 <!-- Dropdown des 3 filtres -->
-                <div class="sort">
-                    <p class="sort-label">Trier par</p>
-                    <ul class="sort-list" tabindex="0" id="listbox" aria-expanded="false">
-                        <li class="chevron">
-                            <i class="fas fa-chevron-down"></i>
-                        </li>
-                        <li class="sort-list-item" id="popular" data-sort="popularité" tabindex="0">Popularité</li>
-                        <li class="sort-list-item" id="date" data-sort="date" tabindex="0">Date</li>
-                        <li class="sort-list-item" id="title" data-sort="titre" tabindex="0">Titre</li>
-                    </ul>
+                <div class="order-by" id="order-by" aria-label="Order By">
+                    <p>Trier par</p>
+                    <div id="dropdown" class="dropdown">
+                        <button id="dropdown-button" class="btn" aria-labelledby="order-by" role="button" aria-haspopup="listbox" aria-expanded="true">
+                            <span id="dropdown-selected">Popularité</span>
+                            <span>
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                        <ul id="dropdown-list" class="hide">
+                            <li id="dropdown-list-popularity">
+                                <a href="#">Popularité</a>
+                            </li>
+                            <li id="dropdown-list-date">
+                                <a href="#">Date</a>
+                            </li>
+                            <li id="dropdown-list-title">
+                                <a href="#">Titre</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
 
                 <!-- Affichage des créations -->
                 <div class="medias-list"></div>

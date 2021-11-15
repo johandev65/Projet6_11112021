@@ -11,68 +11,146 @@ function createContent () {
 }
 
 
-function sortByCategories (data) {
-    let photographers = data.photographers; // la variable photographers contient les données de tous les photographes
-    console.log(photographers);
-    let media = data.media; // la variable photographers contient les données de tous les photographes
-    console.log(media);
-    const chevron = document.querySelector('.sort .sort-list .chevron');
-    const sortList = document.querySelector('.sort .sort-list');
-    const sortItem = document.querySelector('.sort .sort-list .sort-item');
-    const mediasList = document.querySelector('.medias-list');
 
-    // comportements du dropdown au clic souris et à la touche TAB 
-    sortList.addEventListener('click', () => {
-        sortList.classList.toggle('selected');
-        chevron.classList.toggle('reversed');
-    })
-    sortList.addEventListener('focus', () => {
-        sortList.classList.toggle('selected');
-        chevron.classList.toggle('reversed');
-    })
-    sortList.addEventListener('keyup', (event) => {
-        let key = event.key;
-        if (key === 'Enter' || key === 'Space') {
-            sortList.classList.toggle('selected');
-            chevron.classList.toggle('reversed');
-        }
-    })
-
-
-
-    // tri des cartes medias en fonction de la catégorie sélectionnée sur le dropdown
-    const popular = document.querySelector("#popular");
-    const date = document.querySelector("#date");
-    const title = document.querySelector("#title");
-    console.log(media[0].date);
-    console.log(media[0].likes);
-    console.log(media[0].title);
-
-    popular.addEventListener("click", () => {
-        let sortingByPopularity = media[0].likes.sort(function (a, b) {
-            return b.likes - a.likes;
-        });
-        sortingByPopularity;
-    });
-
-    date.addEventListener("click", () => {
-        let sortingByDate = media[0].date.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-        });
-        sortingByDate;
-    });
-
-    title.addEventListener("click", () => {
-        let sortingByTitle = media[0].title.sort(function (a, b) {
-            if (a.title < b.title) {
-                return -1;
-            }
-            if (a.title > b.title) {
-                return 1;
-            }
-                return 0;
-        });
-        sortingByTitle;
-    });   
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const urlEntries = urlParams.entries();
+for (const entry of urlEntries) {
+    if (entry[0] == "id") {
+        var id = entry[1];
+    }
 }
+
+function sortByCategories(data) {
+    
+    const $dropdownButton = document.getElementById("dropdown-button");
+    const $dropdownSelected = document.getElementById("dropdown-selected");
+    const $dropdownList = document.getElementById("dropdown-list");
+    const $dropdownPopularity = document.getElementById("dropdown-list-popularity");
+    const $dropdownDate = document.getElementById("dropdown-list-date");
+    const $dropdownTitle = document.getElementById("dropdown-list-title");
+    
+    const photographer = data.photographers.find((x) => x.id == id);
+    console.log(photographer);
+    const pictures = data.media.filter((x) => x.photographerId == id);
+    console.log(pictures);
+    let sortValue = "popularity";
+    let picturesSorted = sortPictures(pictures, sortValue);
+    
+
+    function convertDate(date) {
+        return parseInt(date.split("-").join());
+    }
+
+
+    function toggleDropdown() {
+        if ($dropdownList.classList.contains("hide")) {
+            $dropdownList.classList.remove("hide");
+            renderDropdown(sortValue);
+        } else {
+            $dropdownList.classList.add("hide");
+        }
+    }
+
+
+    function renderPictures() {
+        picturesSorted = sortPictures(pictures, sortValue);
+        console.log(picturesSorted);
+    }
+
+
+    function sortPictures(pictures, sortValue) {
+        switch (sortValue) {
+            case "popularity":
+                return pictures
+                .sort((a, b) => a.likes - b.likes)
+                .reverse();
+            case "date":
+                return pictures
+                .sort((a, b) => convertDate(a.date) - convertDate(b.date))
+                .reverse();
+            case "title":
+                return pictures.sort(function (a, b) {
+                    if (a.image != undefined) {
+                        var titleA = a.image.toUpperCase();
+                    } else if (a.video != undefined) {
+                        var titleA = a.video.toUpperCase();
+                    }
+                    if (b.image != undefined) {
+                        var titleB = b.image.toUpperCase();
+                    } else if (b.video != undefined) {
+                        var titleB = b.video.toUpperCase();
+                    }
+                    if (titleA < titleB) {
+                        return -1;
+                    }
+                    if (titleA > titleB) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            default:
+            return pictures
+            .sort((a, b) => a.likes - b.likes)
+            .reverse();
+        }
+      }
+      
+    
+    function renderDropdown(sortValue) {
+        switch (sortValue) {
+        case "popularity":
+            $dropdownPopularity.classList.add("hide");
+            $dropdownDate.classList.remove("hide");
+            $dropdownTitle.classList.remove("hide");
+            break;
+        case "date":
+            $dropdownDate.classList.add("hide");
+            $dropdownPopularity.classList.remove("hide");
+            $dropdownTitle.classList.remove("hide");
+            break;
+        case "title":
+            $dropdownTitle.classList.add("hide");
+            $dropdownDate.classList.remove("hide");
+            $dropdownPopularity.classList.remove("hide");
+            break;
+        default:
+            $dropdownPopularity.classList.add("hide");
+            $dropdownDate.classList.remove("hide");
+            $dropdownTitle.classList.remove("hide");
+            break;
+        }
+    }
+
+    /* Event Listeners */
+    $dropdownButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleDropdown();
+    });
+    
+    $dropdownPopularity.addEventListener("click", (e) => {
+        e.preventDefault();
+        sortValue = "popularity";
+        $dropdownSelected.innerHTML = "Popularité";
+        toggleDropdown();
+        renderPictures(picturesSorted);
+    });
+    
+    $dropdownDate.addEventListener("click", (e) => {
+        e.preventDefault();
+        sortValue = "date";
+        $dropdownSelected.innerHTML = "Date";
+        toggleDropdown();
+        renderPictures(picturesSorted);
+    });
+    
+    $dropdownTitle.addEventListener("click", (e) => {
+        e.preventDefault();
+        sortValue = "title";
+        $dropdownSelected.innerHTML = "Titre";
+        toggleDropdown();
+        renderPictures(picturesSorted);
+    });
+}
+
 createContent();

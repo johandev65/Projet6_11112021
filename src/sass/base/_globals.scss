@@ -50,16 +50,13 @@ em {
     width: 1px;
 }
 
+
 .selected {
     color: white !important;
     background-color: $primary !important;
     fill: $primary;
 }
 
-.reversed {
-    transform: rotate(180deg);
-    transition: 200ms ease-in-out;
-}
 
 .show {
     display: flex;
@@ -68,3 +65,4 @@ em {
 .hide {
     display: none;
 }
+
