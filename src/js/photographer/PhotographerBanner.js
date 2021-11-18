@@ -26,7 +26,7 @@ function displayPhotographerBanner(data) {
                 <ul class="photographer-banner__tags">
                     ${photographers[0].tags.map
                         (tag => `<li>
-                                     <a class="tag" href="index.html?tag=${tag}" data-filter="${tag}">#${tag}</a>
+                                     <a class="tag" href="index.html?#${tag}" data-filter="${tag}">#${tag}</a>
                                      <span class="sr-only">portrait de ${photographers[0].name}</span>
                                  </li>`)
                         .join(" ")

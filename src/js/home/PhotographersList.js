@@ -27,7 +27,7 @@ function displayHomePage(data) {
 
             let tagsHTML = "";
             for (let e in tags) {
-                // je construis le template des tags dans le carte de photographe
+                // je construis le template des tags présents dans la carte des photographes
                 tagsHTML += 
                 `
                     <a href="#${tags[e]}" class="photographer-tag tag" aria-label="tag">#${tags[e]}</a>
@@ -65,7 +65,9 @@ function displayHomePage(data) {
     const photographers = document.getElementById("photographers-list"); // variable qui contient la liste de tous les photographes
     const tags = document.getElementsByClassName("tag"); // variable qui contient le bouton-lien ayant la classe tag
     const cards = document.getElementsByClassName("photographer-card"); // variable qui contient la carte du photographe
+    const photographerTag = document.querySelector(".photographer-card-tags .photographer-tag"); // variable qui contient la carte du photographe
     let selectedTag = "";
+
 
 
 
@@ -76,20 +78,19 @@ function displayHomePage(data) {
             x.tags.includes(selectedTag) // qui contiendra la variable "selectedTag"
         );
         console.log(filteredPhotographers);
-        Array.from(cards).forEach((el) => { // je crée une nouvelle instance de carte de photographe
-            el.classList.add("hide"); // j'ajoute la classe "hide" à la carte (servant à cacher)
+        Array.from(cards).forEach((el) => { // sur chaque élément du tableau de carte de photographe.
+            el.classList.add("hide"); // j'ajoute la classe "hide" à une carte qui aura pour but de la cacher
             if (filteredPhotographers.length == 0) { // si le nouveau tableau des photographes ne contient pas de "selectedTag"
-                el.classList.remove("hide"); //  je retire la classe "hide" à la carte ce qui adffichera toutes les cartes par défaut
-            } else { 
-                for (let k in filteredPhotographers) { 
-                    if (filteredPhotographers[k].id == el.id || selectedTag == "") { 
-                        el.classList.remove("hide");
+                el.classList.remove("hide"); //  je retire la classe "hide" à la carte ce qui affichera toutes les cartes par défaut
+            } else { // sinon
+                for (let k in filteredPhotographers) { // pour chaque élément du nouveau tableau des photographes
+                    if (filteredPhotographers[k].id == el.id || selectedTag == "") { // si 
+                        el.classList.remove("hide"); // la classe "hide" sera donc retirée
                     }
                 }
             }
         });
     }
-    
     renderPhotographers(""); // j'appelle la fonction qui va afficher les photographes
     filterPhotographers(selectedTag); // j'appelle la fonction qui filtre les photographes
 
@@ -97,17 +98,15 @@ function displayHomePage(data) {
     // je mets un écouteurs d'évènements sur chaque tag
     Array.from(tags).forEach((el) => { // je crée une nouvelle instance de bouton-lien "tag"
         el.addEventListener("click", (e) => { // à chaque fois qu'on cliquera sur un tag
-            e.preventDefault(); 
             if (el.classList.contains("selected")) { // si le tag contient déja la classe "selected"
                 filterPhotographers(""); // j'appelle la fonction qui filtre les photographes
-            } else { // sinon 
-                Array.from(tags).forEach((elem) => { 
-                    elem.classList.remove("selected"); // cela retire la classe selected à l'élément
+            } else { // si le tag ne contient pas encore la classe "selected"
+                Array.from(tags).forEach((elem) => { // je crée de nouveau une nouvelle instance de bouton-lien "tag"
+                    elem.classList.remove("selected"); // l'élément n'aura plus la classe "selected"
             });
 
-            el.classList.add("selected");
-            selectedTag = el.innerHTML 
-                .replace(/\s/g, "")
+            el.classList.add("selected"); // j'ajoute la classe "selected" à mon tag lorsque je clique dessus
+            selectedTag = el.innerHTML // la variable selectedTag contiendra 
                 .replace(/#/, "")
             filterPhotographers(selectedTag); // j'appelle la fonction qui filtre les photographes
             }

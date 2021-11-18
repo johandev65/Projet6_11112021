@@ -30,8 +30,8 @@ function displayMediaPictureAndName(data) {
         let lightboxBodyHTML = "";
         lightboxBodyHTML += 
         ` 
-            <button class="close-lightbox" title="close lightbox">
-                <img class="close-btn" src="assets/icons/close.png" alt="icône pour fermer la lightbox" onclick="closeMedia()">
+            <button class="close-lightbox" title="close lightbox" onclick="closeMedia()">
+                <img class="close-btn" src="assets/icons/close.png" alt="icône pour fermer la lightbox">
             </button>
             <button class="previous-media" title="previous media">
                 <img class="previous-btn" src="assets/icons/arrowleft.png" alt="icône pour aller au media précédent">
@@ -52,11 +52,23 @@ function openMedia() {
     lightboxModal.style.display = "block";
 }
 
+
+
 // fonction qui ferme la lightbox
 function closeMedia(){
     lightboxModal.style.display = "none";
 }
-   
+
+
+// ajout d'évènement => click pour fermer la lightbox
+document.addEventListener('keydown', function(event) {
+	if(event.key === "Escape"){
+		closeMedia();
+	}
+});
+
+
+
 
 // fonction qui affiche le média suivant
 function previousMedia() {
