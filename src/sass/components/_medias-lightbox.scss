@@ -11,45 +11,79 @@
 
 .lightbox-body {
     background-color: #fff;
-    height: 90%;
-    left: 50%;
-    margin: 0 auto;
-    position: fixed;
-    text-align: center;
-    top: 7%;
-    transform: translate(-50%, 0);
-    width: 60%;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+
+    .close-lightbox {
+        position: absolute;
+        top: 0;
+        right: -15%;
+        cursor: pointer;
+        @include tablet {
+            right:-40%;
+            top:-10%;
+        }
+    }
 
     .close-btn {
         width: 40px;
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        right: 20%;
+       
     }
+
+    .previous-media {
+        position: absolute;
+        top: 50%;
+        left: -15%;
+        cursor: pointer;
+        @include tablet {
+            left: -40%;
+        }
+        @include mobile {
+            top: 90%;
+        }
+    }
+
     .previous-btn {
         width: 40px;
-        position: absolute;
-        cursor: pointer;
-        top: 40%;
-        left: 20%;
     }
+
+    .next-media {
+        position: absolute;
+        top: 50%;
+        right: -15%;
+        cursor: pointer;
+        @include tablet {
+            right: -40%;
+        }
+        @include mobile {
+            top: 90%;
+        }
+    }
+
     .next-btn {
         width: 40px;
-        position: absolute;
-        cursor: pointer;
-        top: 40%;
-        right: 20%;
     }
 
     .lightbox__media {
-        border-radius:5px;
+        border-radius: 5px;  
+        height: 50vh;
+        object-fit: cover;
+        @include tablet {
+            height: 40vh;
+        }
     }
 
     .lightbox__media__name {
         position: relative;
-        text-align: center;
         color: $primary;
         margin-top: 20px;
+        text-align: left;
     }
 }

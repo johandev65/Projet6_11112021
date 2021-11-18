@@ -63,7 +63,7 @@ const displayGallery = (media, folderName) => {
         if (elt.image) {
             specificMediaHTML = 
             `
-            <a class="media-card__picture" href='#' tabindex='0'>
+            <a class="media-card__picture" href='#' tabindex='0' onclick="openMedia()">
                 <img src='./assets/portfolios/${folderName}/${elt.image}' alt="${elt.alt}"/>
             </a>
             `;
@@ -71,7 +71,7 @@ const displayGallery = (media, folderName) => {
         } else if (elt.video) {
             specificMediaHTML = 
             `
-            <a class="media-card__picture" href='#' title="${elt.title}" tabindex='0'>
+            <a class="media-card__picture" href='#' title="${elt.title}" tabindex='0' onclick="openMedia()">
                 <video src='./assets/portfolios/${folderName}/${elt.video}' alt="${elt.alt}" id="${elt.id}" label="Français" kind="subtitles" srclang="fr" controls autoplay loop>
             </a>        
             `;

@@ -94,9 +94,6 @@ function resetForm() {
     document.querySelector("#contact-form").reset();
 }
 
-
-
-
 // Validation "Prénom"
 function firstNameValidation() {
   if (firstName.value.length >= 2) { // Si le nombre de caractères est au moins supérieur ou égal à 2
@@ -169,7 +166,6 @@ function formValidation(e) {
         
     }
 }
-
 
 
 function displayPhotographerNameInModal(data) {

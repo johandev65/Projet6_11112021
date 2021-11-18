@@ -381,14 +381,21 @@ em {
   align-items: center;
   height: 100px;
   width: 300px; }
+  @media screen and (max-width: 992px) {
+    .order-by {
+      padding: 1.5rem 2rem; } }
 
 .order-by p {
   margin-right: 1.5rem;
   font-size: 1.1rem; }
 
 .dropdown {
-  position: relative;
-  z-index: 9; }
+  position: absolute;
+  z-index: 9;
+  left: 6rem; }
+  @media screen and (max-width: 992px) {
+    .dropdown {
+      left: 7rem; } }
 
 .dropdown button {
   width: 170px;
@@ -401,11 +408,7 @@ em {
 
 .dropdown button:hover, .dropdown button:focus {
   color: white;
-  background: #901c1c; }
-
-.dropdown {
-  position: absolute;
-  left: 6rem; }
+  background: #901C1C; }
 
 .dropdown ul {
   position: absolute;
@@ -545,39 +548,64 @@ em {
 
 .lightbox-body {
   background-color: #fff;
-  height: 90%;
-  left: 50%;
-  margin: 0 auto;
-  position: fixed;
-  text-align: center;
-  top: 7%;
-  transform: translate(-50%, 0);
-  width: 60%; }
-  .lightbox-body .close-btn {
-    width: 40px;
+  margin: auto;
+  position: relative;
+  top: 20%;
+  bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%; }
+  .lightbox-body .close-lightbox {
     position: absolute;
-    cursor: pointer;
     top: 0;
-    right: 20%; }
+    right: -15%;
+    cursor: pointer; }
+    @media screen and (max-width: 992px) {
+      .lightbox-body .close-lightbox {
+        right: -40%;
+        top: -10%; } }
+  .lightbox-body .close-btn {
+    width: 40px; }
+  .lightbox-body .previous-media {
+    position: absolute;
+    top: 50%;
+    left: -15%;
+    cursor: pointer; }
+    @media screen and (max-width: 992px) {
+      .lightbox-body .previous-media {
+        left: -40%; } }
+    @media screen and (max-width: 580px) {
+      .lightbox-body .previous-media {
+        top: 90%; } }
   .lightbox-body .previous-btn {
-    width: 40px;
+    width: 40px; }
+  .lightbox-body .next-media {
     position: absolute;
-    cursor: pointer;
-    top: 40%;
-    left: 20%; }
+    top: 50%;
+    right: -15%;
+    cursor: pointer; }
+    @media screen and (max-width: 992px) {
+      .lightbox-body .next-media {
+        right: -40%; } }
+    @media screen and (max-width: 580px) {
+      .lightbox-body .next-media {
+        top: 90%; } }
   .lightbox-body .next-btn {
-    width: 40px;
-    position: absolute;
-    cursor: pointer;
-    top: 40%;
-    right: 20%; }
+    width: 40px; }
   .lightbox-body .lightbox__media {
-    border-radius: 5px; }
+    border-radius: 5px;
+    height: 50vh;
+    object-fit: cover; }
+    @media screen and (max-width: 992px) {
+      .lightbox-body .lightbox__media {
+        height: 40vh; } }
   .lightbox-body .lightbox__media__name {
     position: relative;
-    text-align: center;
     color: #901C1C;
-    margin-top: 20px; }
+    margin-top: 20px;
+    text-align: left; }
 
 @keyframes open-modal {
   from {

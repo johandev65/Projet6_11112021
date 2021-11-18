@@ -1,5 +1,5 @@
 function createContent () {
-    fetch('data/data.json')
+fetch('data/data.json')
         .then((response) => {
             if (response.ok) {
                 return response.json()
@@ -23,12 +23,12 @@ for (const entry of urlEntries) {
 
 function sortByCategories(data) {
     
-    const $dropdownButton = document.getElementById("dropdown-button");
-    const $dropdownSelected = document.getElementById("dropdown-selected");
-    const $dropdownList = document.getElementById("dropdown-list");
-    const $dropdownPopularity = document.getElementById("dropdown-list-popularity");
-    const $dropdownDate = document.getElementById("dropdown-list-date");
-    const $dropdownTitle = document.getElementById("dropdown-list-title");
+    const dropdownButton = document.getElementById("dropdown-button");
+    const dropdownSelected = document.getElementById("dropdown-selected");
+    const dropdownList = document.getElementById("dropdown-list");
+    const dropdownPopularity = document.getElementById("dropdown-list-popularity");
+    const dropdownDate = document.getElementById("dropdown-list-date");
+    const dropdownTitle = document.getElementById("dropdown-list-title");
     
     const photographer = data.photographers.find((x) => x.id == id);
     console.log(photographer);
@@ -37,117 +37,84 @@ function sortByCategories(data) {
     let sortValue = "popularity";
     let picturesSorted = sortPictures(pictures, sortValue);
     
-
-    function convertDate(date) {
-        return parseInt(date.split("-").join());
-    }
-
+ 
 
     function toggleDropdown() {
-        if ($dropdownList.classList.contains("hide")) {
-            $dropdownList.classList.remove("hide");
+        if (dropdownList.classList.contains("hide")) {
+            dropdownList.classList.remove("hide");
             renderDropdown(sortValue);
         } else {
-            $dropdownList.classList.add("hide");
+            dropdownList.classList.add("hide");
         }
     }
+ 
 
-
-    function renderPictures() {
+    function renderPictures(picturesSorted) {
         picturesSorted = sortPictures(pictures, sortValue);
         console.log(picturesSorted);
     }
 
-
+    
     function sortPictures(pictures, sortValue) {
-        switch (sortValue) {
-            case "popularity":
-                return pictures
-                .sort((a, b) => a.likes - b.likes)
-                .reverse();
-            case "date":
-                return pictures
-                .sort((a, b) => convertDate(a.date) - convertDate(b.date))
-                .reverse();
-            case "title":
-                return pictures.sort(function (a, b) {
-                    if (a.image != undefined) {
-                        var titleA = a.image.toUpperCase();
-                    } else if (a.video != undefined) {
-                        var titleA = a.video.toUpperCase();
-                    }
-                    if (b.image != undefined) {
-                        var titleB = b.image.toUpperCase();
-                    } else if (b.video != undefined) {
-                        var titleB = b.video.toUpperCase();
-                    }
-                    if (titleA < titleB) {
-                        return -1;
-                    }
-                    if (titleA > titleB) {
-                        return 1;
-                    }
-                    return 0;
-                });
-            default:
-            return pictures
-            .sort((a, b) => a.likes - b.likes)
-            .reverse();
-        }
-      }
-      
+        
+    }
+
+    
+        
+
+    
     
     function renderDropdown(sortValue) {
         switch (sortValue) {
         case "popularity":
-            $dropdownPopularity.classList.add("hide");
-            $dropdownDate.classList.remove("hide");
-            $dropdownTitle.classList.remove("hide");
+            dropdownPopularity.classList.add("hide");
+            dropdownDate.classList.remove("hide");
+            dropdownTitle.classList.remove("hide");
             break;
         case "date":
-            $dropdownDate.classList.add("hide");
-            $dropdownPopularity.classList.remove("hide");
-            $dropdownTitle.classList.remove("hide");
+            dropdownDate.classList.add("hide");
+            dropdownPopularity.classList.remove("hide");
+            dropdownTitle.classList.remove("hide");
             break;
         case "title":
-            $dropdownTitle.classList.add("hide");
-            $dropdownDate.classList.remove("hide");
-            $dropdownPopularity.classList.remove("hide");
+            dropdownTitle.classList.add("hide");
+            dropdownDate.classList.remove("hide");
+            dropdownPopularity.classList.remove("hide");
             break;
         default:
-            $dropdownPopularity.classList.add("hide");
-            $dropdownDate.classList.remove("hide");
-            $dropdownTitle.classList.remove("hide");
+            dropdownPopularity.classList.add("hide");
+            dropdownDate.classList.remove("hide");
+            dropdownTitle.classList.remove("hide");
             break;
         }
     }
 
     /* Event Listeners */
-    $dropdownButton.addEventListener("click", (e) => {
+    dropdownButton.addEventListener("click", (e) => {
         e.preventDefault();
         toggleDropdown();
     });
     
-    $dropdownPopularity.addEventListener("click", (e) => {
+    dropdownPopularity.addEventListener("click", (e) => {
         e.preventDefault();
         sortValue = "popularity";
-        $dropdownSelected.innerHTML = "Popularité";
+        dropdownSelected.innerHTML = "Popularité";
         toggleDropdown();
         renderPictures(picturesSorted);
     });
     
-    $dropdownDate.addEventListener("click", (e) => {
+    dropdownDate.addEventListener("click", (e) => {
         e.preventDefault();
         sortValue = "date";
-        $dropdownSelected.innerHTML = "Date";
+        dropdownSelected.innerHTML = "Date";
         toggleDropdown();
         renderPictures(picturesSorted);
     });
     
-    $dropdownTitle.addEventListener("click", (e) => {
+    dropdownTitle.addEventListener("click", (e) => {
         e.preventDefault();
         sortValue = "title";
-        $dropdownSelected.innerHTML = "Titre";
+        dropdownSelected.innerHTML = "Titre";
         toggleDropdown();
         renderPictures(picturesSorted);
     });

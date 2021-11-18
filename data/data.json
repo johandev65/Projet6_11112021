@@ -10,7 +10,7 @@
         "price": 400,
         "portrait": "MimiKeel.jpg",
         "alt": "Photo de Mimi Keel",
-        "linkname": "MimiKeel"
+        "linkname": "Mimi"
       },
       {
         "name": "Ellie-Rose Wilkens",
@@ -22,7 +22,7 @@
         "price": 250,
         "portrait": "EllieRoseWilkens.jpg",
         "alt": "Photo de Ellie Rose Wilkens",
-        "linkname": "EllieRoseWilkens"
+        "linkname": "Ellie-Rose"
       },
       {
         "name": "Tracy Galindo",
@@ -34,7 +34,7 @@
         "price": 500,
         "portrait": "TracyGalindo.jpg",
         "alt": "Photo de Tracy Galindo",
-        "linkname": "TracyGalindo"
+        "linkname": "Tracy"
       },
       {
         "name": "Nabeel Bradford",
@@ -46,7 +46,7 @@
         "price": 350,
         "portrait": "NabeelBradford.jpg",
         "alt": "Photo de Nabell Bradford",
-        "linkname": "NabeelBradford"
+        "linkname": "Nabeel"
       },
       {
         "name": "Rhode Dubois",
@@ -58,7 +58,7 @@
         "price": 275,
         "portrait": "RhodeDubois.jpg",
         "alt": "Photo de Rhode Dubois",
-        "linkname": "RhodeDubois"
+        "linkname": "Rhode"
       },
       {
         "name": "Marcel Nikolic",
@@ -70,7 +70,7 @@
         "price": 300,
         "portrait": "MarcelNikolic.jpg",
         "alt": "Photo de Marcel Nikolic",
-        "linkname": "Marcel Nikolic"
+        "linkname": "Marcel"
       }
     ],
 
