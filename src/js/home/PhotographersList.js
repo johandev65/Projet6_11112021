@@ -97,7 +97,7 @@ function displayHomePage(data) {
     // je mets un écouteurs d'évènements sur chaque tag
     Array.from(tags).forEach((el) => { // je crée une nouvelle instance de bouton-lien "tag"
         el.addEventListener("click", (e) => { // à chaque fois qu'on cliquera sur un tag
-            e.preventDefault(); // on empêche le navigateur de recharger la page
+            e.preventDefault(); 
             if (el.classList.contains("selected")) { // si le tag contient déja la classe "selected"
                 filterPhotographers(""); // j'appelle la fonction qui filtre les photographes
             } else { // sinon 
