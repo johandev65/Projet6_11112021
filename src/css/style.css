@@ -41,7 +41,7 @@ em {
   position: absolute;
   width: 1px; }
 
-.selected {
+.active {
   color: white !important;
   background-color: #901C1C !important;
   fill: #901C1C; }
@@ -672,7 +672,10 @@ em {
 
 .formData {
   position: relative;
-  margin-bottom: 2.5rem; }
+  margin-bottom: 2.2rem; }
+  @media screen and (max-width: 580px) {
+    .formData {
+      margin-bottom: 1.2rem; } }
 
 .formData label {
   margin: 1rem 0 0.5rem 0;

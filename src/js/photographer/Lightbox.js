@@ -68,11 +68,9 @@ document.addEventListener('keydown', function(event) {
 });
 
 
-
-
 // fonction qui affiche le média suivant
 function previousMedia() {
-  
+    
 }
 
 // fonction qui affiche le média précédent

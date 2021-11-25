@@ -59,17 +59,13 @@ function displayHomePage(data) {
     }
 
 
-
-
     // Je déclare des variables
     const photographers = document.getElementById("photographers-list"); // variable qui contient la liste de tous les photographes
     const tags = document.getElementsByClassName("tag"); // variable qui contient le bouton-lien ayant la classe tag
     const cards = document.getElementsByClassName("photographer-card"); // variable qui contient la carte du photographe
-    const photographerTag = document.querySelector(".photographer-card-tags .photographer-tag"); // variable qui contient la carte du photographe
+    const photographerTag = document.querySelectorAll(".photographer-card-tags .photographer-tag"); // variable qui contient la carte du photographe
+    console.log(photographerTag);
     let selectedTag = "";
-
-
-
 
     // fonction qui filtre les photographes
     function filterPhotographers(selectedTag) {
@@ -98,20 +94,38 @@ function displayHomePage(data) {
     // je mets un écouteurs d'évènements sur chaque tag
     Array.from(tags).forEach((el) => { // je crée une nouvelle instance de bouton-lien "tag"
         el.addEventListener("click", (e) => { // à chaque fois qu'on cliquera sur un tag
-            if (el.classList.contains("selected")) { // si le tag contient déja la classe "selected"
+            if (el.classList.contains("active")) { // si le tag contient déja la classe "active"
+                photographerTag.classList.add("active");
                 filterPhotographers(""); // j'appelle la fonction qui filtre les photographes
-            } else { // si le tag ne contient pas encore la classe "selected"
+            } else { // si le tag ne contient pas encore la classe "active"
                 Array.from(tags).forEach((elem) => { // je crée de nouveau une nouvelle instance de bouton-lien "tag"
-                    elem.classList.remove("selected"); // l'élément n'aura plus la classe "selected"
+                    elem.classList.remove("active"); // l'élément n'aura plus la classe "active"
             });
 
-            el.classList.add("selected"); // j'ajoute la classe "selected" à mon tag lorsque je clique dessus
+            el.classList.add("active"); // j'ajoute la classe "active" à mon tag lorsque je clique dessus
             selectedTag = el.innerHTML // la variable selectedTag contiendra 
                 .replace(/#/, "")
             filterPhotographers(selectedTag); // j'appelle la fonction qui filtre les photographes
             }
         });
     });
+
+
+    function sortingByTag(tagName) {
+        const tagDOM = document.querySelector(`[data-filter="${tags}"]`);
+        const actualTagsChecked = [];
+      
+        if (tagDOM.getAttribute('data-isChecked') === 'true') {
+          const pos = actualTagsChecked.indexOf(tagName);
+          actualTagsChecked.splice(pos, 1);
+          setDataCheckedAttributeOfTag(tagName, 'false');
+        } else {
+          actualTagsChecked.push(tagName);
+          setDataCheckedAttributeOfTag(tagName, 'true');
+        }
+      
+        displayingArticles(actualTagsChecked);
+    }
 
 }
 

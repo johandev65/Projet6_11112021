@@ -73,8 +73,12 @@
 
 .formData {
     position: relative;
-    margin-bottom:2.5rem;
+    margin-bottom: 2.2rem;
+    @include mobile {
+        margin-bottom:1.2rem;
+    }
 }
+
 .formData label {
     margin: 1rem 0 0.5rem 0;
     font-size: 1.3rem;

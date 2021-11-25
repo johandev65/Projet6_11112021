@@ -55,14 +55,6 @@ function sortByCategories(data) {
     }
 
     
-    function sortPictures(pictures, sortValue) {
-        
-    }
-
-    
-        
-
-    
     
     function renderDropdown(sortValue) {
         switch (sortValue) {
@@ -88,6 +80,18 @@ function sortByCategories(data) {
             break;
         }
     }
+
+    function sortPictures(sortValue) {
+        //create a Array with the desired order and use this are to call the createGallery Method
+        if (sortValue === "Popularity") {
+            pictures.sort((a, b) => (a.likes < b.likes ? 1 : -1));
+        } else if (sortValue === "Date") {
+            pictures.sort((a, b) => (a.date < b.date ? 1 : -1));
+        } else if (sortValue === "Title") {
+            pictures.sort((a, b) => (a.title > b.title ? 1 : -1));
+        }
+    }
+    sortPictures(sortValue)
 
     /* Event Listeners */
     dropdownButton.addEventListener("click", (e) => {
@@ -121,3 +125,5 @@ function sortByCategories(data) {
 }
 
 createContent();
+
+

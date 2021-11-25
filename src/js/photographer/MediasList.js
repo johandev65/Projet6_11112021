@@ -82,4 +82,3 @@ const displayGallery = (media, folderName) => {
         document.getElementsByClassName('media-card')[i].insertAdjacentHTML('afterbegin', specificMediaHTML)
     })
 }
-
